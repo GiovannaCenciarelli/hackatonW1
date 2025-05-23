@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador Holding | W1 Consultoria</title>
+  <link rel="stylesheet" href="simulation.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background: #f5f7fa; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="#" class="logo">W1 Consultoria</a>
+      <nav>
+        <ul>
+          <li><a href="conhecer.html">Home</a></li>
+          <li><a class="active" href="simulation.html">Simulador</a></li>
+          <li><a href="historia.html">Nossa História</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Simule a sua economia conosco</h1>
+        <p>Descubra quanto seu patrimônio pode economizar com nossa solução de planejamento tributário</p>
+      </div>
+    </section>
+
+    <div class="simulator-container">
+      <div class="form-section">
+        <form id="holdingForm">
+          <div class="input-group">
+            <label for="patrimonio">Valor Total do Patrimônio (R$)</label>
+            <input type="number" id="patrimonio" required placeholder="Ex: 5.000.000">
+          </div>
+
+          <div class="input-row">
+            <div class="input-group">
+              <label for="imoveis">% em Imóveis</label>
+              <input type="number" id="imoveis" required min="0" max="100">
+            </div>
+            <div class="input-group">
+              <label for="sociedades">% em Sociedades</label>
+              <input type="number" id="sociedades" required min="0" max="100">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="faturamento">Faturamento Anual (R$)</label>
+            <input type="number" id="faturamento" required placeholder="Ex: 1.200.000">
+          </div>
+
+          <div class="input-group">
+            <label for="estado">Estado</label>
+            <select id="estado" required>
+              <option value="SP">São Paulo</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="OUTROS">Outros Estados</option>
+            </select>
+          </div>
+
+          <button type="submit" class="cta-button">
+            <span class="button-text">Calcular Economia</span>
+            <i class="fas fa-calculator"></i>
+          </button>
+        </form>
+      </div>
+
+      <div class="result-section">
+        <div class="result-card">
+          <h3>Resultado da Simulação</h3>
+          <div class="economy-result">
+            <span class="economy-label">Economia Anual Estimada:</span>
+            <span class="economy-value" id="savingsResult">R$ 0,00</span>
+          </div>
+          <canvas id="taxChart"></canvas>
+          <p class="disclaimer">*Estimativa baseada em parâmetros fiscais vigentes. Consulte um especialista para análise personalizada.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+   <script src="simulation.js"></script>
+</body>
+</html>

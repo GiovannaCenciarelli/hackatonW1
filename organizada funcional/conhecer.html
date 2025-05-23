@@ -1,0 +1,56 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>W1 Consultoria</title>
+  <link rel="stylesheet" href="conhecer.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <a href="simulation.html" class="logo">Faça um simulação</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Área do cliente</a></li>
+        <li><a href="historia.html">Nossa história</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="home">
+    <div class="home-img">
+      <img src="img_logow1consultoriafinanceira2e97mq_1.png" alt="Logo da empresa">
+    </div>
+    <div class="home-content">
+      <h1>Somos a <span>W1 Consultoria</span>, especializada em <span>gestão de patrimônios</span></h1>
+      <h3 class="typing-text">Sinta a sensação de <span>transformar cada um dos seus objetivos em conquistas</span></h3>
+      <p>Seu novo Planejamento Financeiro 100% personalizado está a um clique de distância. Comece agora.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/finisher-header/dist/finisher-header.min.js"></script>
+  <script>
+    new FinisherHeader({
+      "count": 10,
+      "size": { "min": 120, "max": 320, "pulse": 0 },
+      "speed": 1,
+      "colors": {
+        "background": "#ffffff",
+        "particles": ["#ff9569", "#ff5e62", "#ffc36b"]
+      },
+      "blending": "screen",
+      "opacity": 0.6,
+      "shapes": ["c", "t", "s"],
+      "selector": ".home"
+    });
+  </script>
+</body>
+</html>

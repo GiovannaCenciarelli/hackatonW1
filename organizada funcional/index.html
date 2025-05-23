@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W1 Consultoria - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pridi:wght@400;500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .transition-fade {
+            transition: opacity 0.4s ease;
+            opacity: 1;
+        }
+        
+        html.is-animating .transition-fade {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <main class="login-wrapper transition-fade">
+        <div class="login-container">
+            <div class="logo-container">
+                <img src="img_logow1consultoriafinanceira2e97mq_1.png" 
+                     alt="Logo W1 Consultoria" 
+                     class="logo">
+            </div>
+            
+            <div class="login-card">
+                <h1 class="login-title">ENTRE NA SUA CONTA</h1>
+                
+                <form id="login-form" class="login-form">
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" 
+                               id="email" 
+                               required 
+                               placeholder="exemplo@email.com">
+                        <div class="error-message" id="email-error">
+                            Por favor, insira um e-mail válido
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <input type="password" 
+                               id="password" 
+                               required 
+                               placeholder="••••••••">
+                        <div class="error-message" id="password-error">
+                            A senha deve ter pelo menos 6 caracteres
+                        </div>
+                    </div>
+
+                    <button type="submit" class="login-button">
+                        LOGIN
+                    </button>
+
+                    <div class="links-container">
+                        <a href="register.html" class="text-link">
+                            CRIE SUA CONTA
+                        </a>
+                         <a href="conhecer.html" class="text-link">
+                            CONHEÇA-NOS
+                        </a>
+            
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animação de entrada
+            document.querySelector('html').classList.remove('is-animating');
+            
+            // Transição entre páginas
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    document.querySelector('html').classList.add('is-animating');
+                    
+                    setTimeout(() => {
+                        window.location.href = link.href;
+                    }, 400);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+:root {
+    --primary-bg: linear-gradient(90deg, #022028 0%, #004357 100%);
+    --card-bg: rgba(217, 217, 217, 0.15);
+    --accent-color: rgba(35, 128, 114, 0.91);
+    --input-bg: rgba(255, 255, 255, 0.9);
+    --text-light: #ffffff;
+    --border-radius: 30px;
+    --box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    --primary-color: #00C2C8;
+    --secondary-color: #FF6B35;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: rgba(0, 86, 90, 0.8);
+    color: var(--text-light);
+    min-height: 100vh;
+}
+
+/* Header Modernizado */
+header {
+    background: rgba(0, 86, 90, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+.header-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav a {
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+nav a.active,
+nav a:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--text-light);
+}
+
+/* Hero Section Ajustado */
+.hero {
+    padding: 12rem 2rem 4rem;
+    text-align: center;
+    animation: slideUp 0.8s ease-out;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    color: rgb(0, 174, 180);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 4px rgba(255, 255, 255, 0.3);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    line-height: 1.8;
+    color: black;;
+}
+
+/* Container do Simulador */
+.simulator-container {
+    max-width: 1300px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr 1fr;
+    animation: slideUp 0.8s 0.2s ease-out both;
+}
+
+/* Cards com Glassmorfismo */
+.form-section,
+.result-section {
+    background: rgb(0, 52, 61);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.input-group {
+    margin-bottom: 2rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    background: var(--input-bg);
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 207, 255, 0.3);
+    transform: scale(1.02);
+}
+
+/* Botão Atualizado */
+.cta-button {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, 
+        var(--primary-color), 
+        var(--accent-color));
+    color: var(--text-light);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Resultados Estilizados */
+.economy-result {
+    text-align: center;
+    margin: 2.5rem 0;
+    animation: slideUp 0.6s ease-out;
+}
+
+.economy-label {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.economy-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-top: 1rem;
+    text-shadow: 0 4px 4px rgba(0,0,0,0.3);
+}
+
+/* Gráfico Integrado */
+#taxChart {
+    margin: 2rem 0;
+    animation: slideUp 0.6s 0.2s ease-out both;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .simulator-container {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .hero {
+        padding: 8rem 2rem 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        color: var(--primary-color);
+    }
+
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .economy-value {
+        font-size: 2.2rem;
+    }
+}
+
+/* Animações */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}

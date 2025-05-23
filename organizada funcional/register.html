@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W1 Consultoria - Cadastro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pridi:wght@400;500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="register.css">
+    <style>
+        .transition-fade {
+            transition: opacity 0.4s ease;
+            opacity: 1;
+        }
+        
+        html.is-animating .transition-fade {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <main class="register-wrapper transition-fade">
+        <div class="register-container">
+            <div class="logo-container">
+                <img src="img_logow1consultoriafinanceira2e97mq_1.png" 
+                     alt="Logo W1 Consultoria" 
+                     class="logo">
+            </div>
+
+            <div class="register-card">
+                <h1 class="register-title">CRIE SUA CONTA</h1>
+                
+                <form id="register-form" class="register-form" action="php/register.php" method="POST">
+                    <div class="input-group-row">
+                        <div class="input-group">
+                            <label for="firstName">Nome</label>
+                            <input type="text" 
+                                   id="firstName" 
+                                   name="firstName"
+                                   required 
+                                   placeholder="Digite seu nome">
+                        </div>
+                        <div class="input-group">
+                            <label for="lastName">Sobrenome</label>
+                            <input type="text" 
+                                   id="lastName" 
+                                   name="lastName"
+                                   required 
+                                   placeholder="Digite seu sobrenome">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" 
+                               id="email" 
+                               name="email"
+                               required 
+                               placeholder="exemplo@email.com">
+                        <div class="error-message" id="email-error"></div>
+                    </div>
+
+                    <div class="input-group-row">
+                        <div class="input-group">
+                            <label for="password">Senha</label>
+                            <input type="password" 
+                                   id="password" 
+                                   name="password"
+                                   required 
+                                   placeholder="••••••••">
+                        </div>
+                        <div class="input-group">
+                            <label for="confirmPassword">Confirme a Senha</label>
+                            <input type="password" 
+                                   id="confirmPassword" 
+                                   name="confirmPassword"
+                                   required 
+                                   placeholder="••••••••">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="gender">Gênero</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Selecione</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Feminino</option>
+                            <option value="3">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="terms-container">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">Li e aceito os Termos de Uso e Política de Privacidade</label>
+                    </div>
+
+                    <button type="submit" class="register-button">CADASTRAR</button>
+
+                    <div class="login-link">
+                        Já tem uma conta? <a href="index.html">Faça Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animação de entrada
+            document.querySelector('html').classList.remove('is-animating');
+            
+            // Transição entre páginas
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    document.querySelector('html').classList.add('is-animating');
+                    
+                    setTimeout(() => {
+                        window.location.href = link.href;
+                    }, 400);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
