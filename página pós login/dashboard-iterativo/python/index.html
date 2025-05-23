@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Investimentos</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h2 { margin-top: 30px; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>Resumo de Investimentos</h1>
+
+  <h2>Ativos (Assets)</h2>
+  <div id="assets"></div>
+
+  <h2>Metas de Investimento (Goals)</h2>
+  <div id="goals"></div>
+
+  <script>
+    const apiBase = "http://127.0.0.1:5000/api"; // altere se a API estiver em outro host/porta
+
+    async function fetchAndRenderAssets() {
+      const res = await fetch(`${apiBase}/assets`);
+      const data = await res.json();
+
+      const categories = {
+        'Tesouro Direto': data.tesouro,
+        'Ações (Stocks)': data.stocks,
+        'Fundos Imobiliários (FIIs)': data.fiis
+      };
+
+      const container = document.getElementById('assets');
+      for (const [label, items] of Object.entries(categories)) {
+        const table = document.createElement('table');
+        const thead = `<thead><tr><th>Nome</th><th>Ticker</th><th>Preço</th></tr></thead>`;
+        const rows = items.map(item => 
+          `<tr><td>${item[1]}</td><td>${item[2] || '-'}</td><td>${item[3] !== null ? 'R$ ' + item[3].toFixed(2) : '-'}</td></tr>`
+        ).join('');
+        table.innerHTML = `<caption><strong>${label}</strong></caption>${thead}<tbody>${rows}</tbody>`;
+        container.appendChild(table);
+      }
+    }
+
+    async function fetchAndRenderGoals() {
+      const res = await fetch(`${apiBase}/goals`);
+      const data = await res.json();
+
+      const table = document.createElement('table');
+      const thead = `<thead><tr><th>Meta</th><th>Valor</th></tr></thead>`;
+      const rows = data.map(item =>
+        `<tr><td>${item[0]}</td><td>R$ ${item[1].toFixed(2)}</td></tr>`
+      ).join('');
+      table.innerHTML = `${thead}<tbody>${rows}</tbody>`;
+      document.getElementById('goals').appendChild(table);
+    }
+
+    fetchAndRenderAssets();
+    fetchAndRenderGoals();
+  </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+/* ▸ 1. Variáveis, fontes e reset ───────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --bg-1: #002C3B;
+  --bg-2: #003C51;
+  --card-bg: #003F55CC;
+  --white: #FDFDFD;
+  --gray: #9AA9B3;
+  --accent: #0EC9FF;
+  --success-grad-1: #066B60;
+  --success-grad-2: #1EA56A;
+  --radius: 20px;
+  --transition: 0.3s ease;
+  --border: 1px solid rgba(255, 255, 255, 0.08);
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ▸ 2. Plano de fundo global ───────────────────────────────────────────── */
+body {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  color: var(--white);
+  overflow-x: hidden;
+  flex-direction: column;
+}
+
+/* ▸ 3. Topbar (como substituta da sidebar) ─────────────────────────────── */
+.topbar {
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 1.2rem 2rem;
+  border-bottom: var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--white);
+}
+
+/* ▸ 4. Painel principal ────────────────────────────────────────────────── */
+.simulator-panel {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px) saturate(160%);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: var(--shadow);
+  overflow-wrap: break-word;
+  position: relative;
+}
+
+/* ▸ 5. Botões ──────────────────────────────────────────────────────────── */
+.btn-simular,
+button[type="submit"] {
+  width: 100%;
+  border: none;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+  background: linear-gradient(90deg, var(--success-grad-1), var(--success-grad-2));
+  cursor: pointer;
+  transition: filter var(--transition);
+  text-transform: none;
+}
+
+.btn-simular:hover,
+button[type="submit"]:hover {
+  filter: brightness(1.08);
+}
+
+.btn-back {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.45rem 1rem;
+  font-size: 0.8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn-back:hover {
+  background: var(--accent);
+  color: var(--bg-1);
+}
+
+/* ▸ 6. Inputs ──────────────────────────────────────────────────────────── */
+.input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: var(--white);
+  font-size: 0.95rem;
+}
+
+.input-group input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(14, 201, 255, 0.2);
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: var(--gray);
+  pointer-events: none;
+  transition: 0.3s ease;
+  background-color: var(--card-bg);
+  padding: 0 0.3rem;
+}
+
+.input-group.focused label {
+  top: -10px;
+  left: 0.9rem;
+  font-size: 0.7rem;
+}
+.input-group.focused input {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(14, 201, 255, 0.2);
+}
+
+/* ▸ 7. Cartões de dados ────────────────────────────────────────────────── */
+.kpi-card {
+  background: var(--card-bg);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: transform var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.kpi-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ▸ 8. Gráfico ─────────────────────────────────────────────────────────── */
+.chart-box {
+  background: var(--card-bg);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  position: relative;
+}
+
+/* ▸ 9. Responsivo ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .simulator-panel {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+}

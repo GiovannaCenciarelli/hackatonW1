@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Investimentos</title>
+    <link rel="stylesheet" href="patrimonio.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="InvestmentPortfolioDashboard.html" class="btn-nav">🏠 Menu</a>
+        <a href="consultor.html" class="btn-nav active">💼 Fale com Consultor</a>
+    </nav>
+
+    <div class="container">
+        <h1>📈 Simulador de Investimentos Inteligente</h1>
+
+        <section class="config">
+            <h2>⚙️ Configurações</h2>
+            <label>Período de Análise:
+                <select id="timeframe">
+                    <option value="1D">1D</option>
+                    <option value="1W">1W</option>
+                    <option value="1M" selected>1M</option>
+                    <option value="1Y">1Y</option>
+                    <option value="5Y">5Y</option>
+                </select>
+            </label>
+            <label>Perfil de Risco:
+                <select id="riskProfile">
+                    <option value="Conservador">Conservador</option>
+                    <option value="Moderado" selected>Moderado</option>
+                    <option value="Agressivo">Agressivo</option>
+                </select>
+            </label>
+        </section>
+
+        <section class="inputs">
+            <h2>💵 Alocação de Recursos</h2>
+            <div class="grid">
+                <div><label>Renda Fixa (R$)<input type="number" id="Renda Fixa" value="0"></label></div>
+                <div><label>Ações (R$)<input type="number" id="Ações" value="0"></label></div>
+                <div><label>FIIs (R$)<input type="number" id="FIIs" value="0"></label></div>
+                <div><label>ETFs (R$)<input type="number" id="ETFs" value="0"></label></div>
+                <div><label>Previdência (R$)<input type="number" id="Previdência" value="0"></label></div>
+                <div><label>Cripto (R$)<input type="number" id="Cripto" value="0"></label></div>
+                <div><label>Internacional (R$)<input type="number" id="Internacional" value="0"></label></div>
+                <div><label>Commodities (R$)<input type="number" id="Commodities" value="0"></label></div>
+                <div><label>Hedge (R$)<input type="number" id="Hedge" value="0"></label></div>
+            </div>
+            <button onclick="simulate()">🚀 Simular</button>
+        </section>
+
+        <section class="results">
+            <h2>📊 Distribuição da Carteira</h2>
+            <canvas id="pieChart"></canvas>
+            <h2>📈 Evolução e Distribuição</h2>
+            <canvas id="barChart"></canvas>
+            <canvas id="lineChart"></canvas>
+        </section>
+
+        <section class="summary">
+            <h2>📋 Resumo da Carteira</h2>
+            <p id="invested">Total Investido: R$ 0</p>
+            <p id="current">Valor Atual: R$ 0</p>
+            <p id="variation">Variação: 0%</p>
+        </section>
+    </div>
+
+    <script src="patrimonio.js"></script>
+</body>
+</html>

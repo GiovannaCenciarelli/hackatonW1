@@ -1,0 +1,156 @@
+:root {
+  --azul-escuro: #031E26;
+  --azul-medio: #004357;
+  --azul-claro: #0ec9ff;
+  --cinza-claro: #f0f2f5;
+  --branco: #ffffff;
+  --radius: 8px;
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Istok Web', sans-serif;
+  background: var(--cinza-claro);
+  color: var(--azul-escuro);
+  line-height: 1.5;
+}
+
+.topbar {
+  background: var(--azul-escuro);
+  color: var(--branco);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-nav {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: var(--branco);
+  background: var(--azul-medio);
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: background var(--transition);
+}
+
+.btn-nav:hover,
+.btn-nav.active {
+  background: var(--azul-claro);
+  color: var(--azul-escuro);
+}
+
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.intro h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--azul-medio);
+}
+
+.intro p {
+  font-size: 1rem;
+  color: var(--azul-escuro);
+}
+
+.contact-panel {
+  background: var(--branco);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contact-panel h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--azul-medio);
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: border-color var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--azul-claro);
+}
+
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: var(--azul-claro);
+  color: var(--azul-escuro);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.btn-submit:hover {
+  background: var(--azul-medio);
+  color: var(--branco);
+}
+
+.form-feedback {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--azul-medio);
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .intro h1 {
+    font-size: 1.5rem;
+  }
+  .btn-submit {
+    font-size: 1rem;
+  }
+}
